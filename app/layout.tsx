@@ -32,6 +32,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  // Required so env(safe-area-inset-*) resolves to non-zero on iOS.
+  viewportFit: "cover",
   themeColor: "#1E5BAD",
 };
 

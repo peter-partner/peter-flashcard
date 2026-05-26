@@ -24,6 +24,8 @@ export function HeaderBar({
         background: "rgba(244, 248, 252, 0.85)",
         backdropFilter: "blur(12px)",
         WebkitBackdropFilter: "blur(12px)",
+        // Push content below the notch / Dynamic Island in PWA + full-screen.
+        paddingTop: "env(safe-area-inset-top)",
       }}
     >
       <div className="flex items-center justify-between px-5 py-3.5">

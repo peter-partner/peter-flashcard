@@ -27,7 +27,11 @@ export function FooterNav({
         background: "rgba(244, 248, 252, 0.92)",
         backdropFilter: "blur(12px)",
         WebkitBackdropFilter: "blur(12px)",
-        padding: "12px 16px 40px",
+        paddingLeft: 16,
+        paddingRight: 16,
+        paddingTop: 12,
+        // Clear the iOS home indicator without dead space on home-button phones.
+        paddingBottom: "max(12px, env(safe-area-inset-bottom))",
         marginTop: 28,
       }}
     >

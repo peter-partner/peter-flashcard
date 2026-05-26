@@ -48,12 +48,13 @@ export default function Home() {
           </div>
         </div>
 
-        <h1 className="text-4xl sm:text-5xl font-semibold tracking-[-0.02em] text-brand-navy leading-[1.05]">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-[-0.02em] text-brand-navy leading-[1.1] break-words">
           Learn Chinese
           <br />
           <span className="font-zh text-brand-primary">一字 一卡</span>
           <span className="text-brand-slate-light"> · </span>
-          one word, one card.
+          <span className="whitespace-nowrap">one word,</span>{" "}
+          <span className="whitespace-nowrap">one card.</span>
         </h1>
 
         <p className="mt-5 text-[15px] sm:text-base text-brand-slate max-w-xl leading-relaxed">

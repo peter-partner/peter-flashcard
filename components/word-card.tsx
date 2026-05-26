@@ -10,16 +10,17 @@ function Meta({
   tight?: boolean;
 }) {
   return (
-    <div className="flex flex-col items-center gap-0.5">
+    <div className="flex flex-col items-center gap-0.5 min-w-0 flex-1 px-1">
       <span className="text-[9px] font-bold text-brand-slate-light tracking-[0.08em]">
         {label.toUpperCase()}
       </span>
       <span
-        className="text-brand-navy font-semibold"
+        className="text-brand-navy font-semibold text-center max-w-full truncate"
         style={{
           fontSize: tight ? 11 : 12,
           letterSpacing: tight ? "0" : "normal",
         }}
+        title={value}
       >
         {value}
       </span>

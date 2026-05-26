@@ -40,7 +40,7 @@ export function FooterNav({
           type="button"
           onClick={onPrev}
           disabled={disablePrev}
-          className="flex-1 h-[46px] rounded-[14px] bg-white border border-brand-divider inline-flex items-center justify-center gap-1.5 font-semibold text-[13px] font-sans"
+          className="flex-1 min-w-0 h-[46px] rounded-[14px] bg-white border border-brand-divider inline-flex items-center justify-center gap-1.5 font-semibold text-[13px] font-sans"
           style={{
             color: disablePrev ? "#7C8AA0" : "#4A5B71",
             cursor: disablePrev ? "not-allowed" : "pointer",
@@ -51,7 +51,7 @@ export function FooterNav({
           Previous
         </button>
 
-        <div className="flex items-center gap-1.5 px-1">
+        <div className="flex items-center gap-1.5 px-1 shrink-0">
           {dots.map((d) => (
             <span
               key={d}
@@ -69,7 +69,7 @@ export function FooterNav({
           type="button"
           onClick={onNext}
           disabled={disableNext}
-          className="flex-1 h-[46px] rounded-[14px] border-0 inline-flex items-center justify-center gap-1.5 text-white font-semibold text-[13px] font-sans"
+          className="flex-1 min-w-0 h-[46px] rounded-[14px] border-0 inline-flex items-center justify-center gap-1.5 text-white font-semibold text-[13px] font-sans"
           style={{
             background: disableNext ? "#D6E6F5" : "#1E5BAD",
             cursor: disableNext ? "not-allowed" : "pointer",

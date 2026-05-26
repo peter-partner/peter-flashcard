@@ -87,10 +87,7 @@ export default function Home() {
           {features.map((f) => (
             <div
               key={f.title}
-              className="bg-white rounded-[16px] p-4 border border-brand-divider"
-              style={{
-                boxShadow: "0 4px 20px -8px rgba(15, 44, 77, 0.08)",
-              }}
+              className="bg-white rounded-surface p-4 border border-brand-divider shadow-e1 transition-all motion-safe:hover:-translate-y-0.5 motion-safe:hover:shadow-e3"
             >
               <div className="w-9 h-9 rounded-[10px] bg-brand-accent grid place-items-center mb-3">
                 {f.icon}

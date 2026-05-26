@@ -71,10 +71,17 @@ export function Pronunciation() {
             ))}
           </div>
 
-          <div className="mt-2 text-[12px] text-brand-slate-light font-medium">
-            {playing === "normal"
-              ? "Playing…"
-              : "Native Beijing pronunciation"}
+          <div className="mt-2 flex flex-col items-center gap-0.5">
+            <div className="text-[12px] text-brand-slate-light font-medium">
+              {playing === "normal"
+                ? "Playing…"
+                : "Native Beijing pronunciation"}
+            </div>
+            {playing !== "normal" && (
+              <div className="text-[11px] text-brand-slate-light font-thai">
+                เสียงเจ้าของภาษาจากปักกิ่ง
+              </div>
+            )}
           </div>
 
           <button

@@ -29,6 +29,32 @@ export function FlashcardView({
   const [index, setIndex] = useState(initialIndex);
   const [bookmarks, setBookmarks] = useState<Set<number>>(() => new Set());
   const scrollRef = useRef<HTMLDivElement | null>(null);
+  const storageKey = `pf:bookmarks:${deck}`;
+
+  // Load persisted bookmarks once on mount.
+  useEffect(() => {
+    try {
+      const raw = window.localStorage.getItem(storageKey);
+      if (!raw) return;
+      const parsed = JSON.parse(raw) as number[];
+      if (Array.isArray(parsed)) setBookmarks(new Set(parsed));
+    } catch {
+      // localStorage unavailable (private mode) — silently skip.
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Persist on change.
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(
+        storageKey,
+        JSON.stringify(Array.from(bookmarks)),
+      );
+    } catch {
+      // ignore quota / private-mode errors
+    }
+  }, [bookmarks, storageKey]);
 
   // Reset scroll on card change.
   useEffect(() => {

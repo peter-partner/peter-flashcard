@@ -51,10 +51,15 @@ export function FooterNav({
           Previous
         </button>
 
-        <div className="flex items-center gap-1.5 px-1 shrink-0">
+        <div
+          className="flex items-center gap-1.5 px-1 shrink-0"
+          role="status"
+          aria-label={`Card ${index} of ${total}`}
+        >
           {dots.map((d) => (
             <span
               key={d}
+              aria-hidden="true"
               className="rounded-full transition-all"
               style={{
                 width: d === index ? 18 : 6,

@@ -15,7 +15,7 @@ export default function ToeicCardPage({
   if (TOEIC.length === 0) {
     return (
       <main
-        className="min-h-screen grid place-items-center text-brand-navy font-sans px-6"
+        className="min-h-dvh grid place-items-center text-brand-navy font-sans px-6"
         style={{
           background:
             "radial-gradient(circle at 30% 0%, #EAF2FA 0%, #DCE7F2 50%, #CDDBE9 100%)",

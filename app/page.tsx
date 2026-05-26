@@ -23,7 +23,7 @@ export default function Home() {
 
   return (
     <main
-      className="min-h-screen text-brand-navy font-sans"
+      className="min-h-dvh text-brand-navy font-sans"
       style={{
         background:
           "radial-gradient(circle at 30% 0%, #EAF2FA 0%, #DCE7F2 50%, #CDDBE9 100%)",

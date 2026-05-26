@@ -75,7 +75,7 @@ export function FlashcardView({
   return (
     <div
       ref={scrollRef}
-      className="pf-scroll h-screen overflow-auto bg-brand-bg text-brand-navy font-sans"
+      className="pf-scroll h-dvh overflow-auto overscroll-y-contain bg-brand-bg text-brand-navy font-sans"
       style={{ WebkitOverflowScrolling: "touch" }}
     >
       <HeaderBar

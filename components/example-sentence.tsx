@@ -28,7 +28,7 @@ export function ExampleSentence({ ex }: { ex: FlashcardExample }) {
             type="button"
             onClick={play}
             aria-label="Play example sentence"
-            className="shrink-0 w-9 h-9 rounded-[10px] grid place-items-center transition-all"
+            className="shrink-0 w-11 h-11 rounded-[10px] grid place-items-center transition-all"
             style={{
               background: playing ? "#1E5BAD" : "#E8F1FA",
               transform: playing ? "scale(1.05)" : "scale(1)",

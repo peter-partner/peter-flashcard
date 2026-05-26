@@ -84,7 +84,7 @@ export function Pronunciation() {
             type="button"
             onClick={() => play("slow")}
             disabled={!!playing}
-            className="mt-4 inline-flex items-center gap-2 px-4 py-2.5 rounded-full font-semibold text-[13px] transition-all font-sans"
+            className="mt-4 inline-flex items-center gap-2 px-4 py-2.5 min-h-[44px] rounded-full font-semibold text-[13px] transition-all font-sans"
             style={{
               background: playing === "slow" ? "#1E5BAD" : "#E8F1FA",
               color: playing === "slow" ? "#FFFFFF" : "#1E5BAD",

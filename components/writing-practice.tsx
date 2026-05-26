@@ -41,7 +41,7 @@ export function WritingPractice({ word }: { word: Flashcard }) {
           <button
             type="button"
             onClick={() => canvasRef.current?.clear()}
-            className="flex-1 p-3 rounded-xl bg-transparent text-brand-slate border-[1.5px] border-brand-divider font-semibold text-[13px] inline-flex items-center justify-center gap-1.5 font-sans transition-colors hover:bg-brand-bg"
+            className="flex-1 min-h-[44px] px-3 rounded-xl bg-transparent text-brand-slate border-[1.5px] border-brand-divider font-semibold text-[13px] inline-flex items-center justify-center gap-1.5 font-sans transition-colors hover:bg-brand-bg"
           >
             <RotateCcw size={14} stroke="#4A5B71" />
             Clear
@@ -49,7 +49,7 @@ export function WritingPractice({ word }: { word: Flashcard }) {
           <button
             type="button"
             onClick={() => setShowStrokes((s) => !s)}
-            className="p-3 rounded-xl text-white font-semibold text-[13px] font-sans transition-colors"
+            className="min-h-[44px] px-3 rounded-xl text-white font-semibold text-[13px] font-sans transition-colors"
             style={{
               flex: 1.4,
               background: showStrokes ? "#164685" : "#1E5BAD",

@@ -54,7 +54,7 @@ export function HeaderBar({
             onClick={onBookmark}
             aria-pressed={bookmarked}
             aria-label="Bookmark this card"
-            className="w-[34px] h-[34px] rounded-[10px] grid place-items-center transition-all"
+            className="w-11 h-11 rounded-[10px] grid place-items-center transition-all"
             style={{
               background: bookmarked ? "#E8F1FA" : "transparent",
               color: bookmarked ? "#1E5BAD" : "#4A5B71",

@@ -65,11 +65,18 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  button {
+    /* Disable Android Chrome 300ms tap delay; defer scroll/zoom to the browser. */
+    touch-action: manipulation;
+  }
   button:active {
     transform: scale(0.97);
   }
   button:disabled {
     opacity: 0.85;
+  }
+  a {
+    touch-action: manipulation;
   }
 }
 

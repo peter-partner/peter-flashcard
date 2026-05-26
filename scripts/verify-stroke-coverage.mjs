@@ -37,6 +37,19 @@ if (bad.length) {
   console.error("FAILED:", bad);
   process.exit(1);
 }
+
+// Also assert stroke / median counts agree — the renderer assumes the
+// medians array indexes 1:1 with the strokes array.
+const misaligned = results.filter(
+  (r) => r.ok && r.strokes !== r.medians,
+);
+if (misaligned.length) {
+  console.error(
+    "STROKE/MEDIAN MISMATCH (would break stroke-number badges):",
+    misaligned,
+  );
+  process.exit(1);
+}
 const totalStrokes = results.reduce((s, r) => s + r.strokes, 0);
 console.log(
   `All ${results.length} chars have data. Total strokes across deck: ${totalStrokes}.`,

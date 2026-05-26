@@ -85,3 +85,26 @@
   width: 0;
   background: transparent;
 }
+
+/* Visible focus ring for keyboard users only — never for mouse/touch. */
+@layer base {
+  *:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px #ffffff,
+      0 0 0 4px rgba(30, 91, 173, 0.6);
+    border-radius: 8px;
+  }
+}
+
+/* Respect user motion preferences — turn off the prototype animations. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

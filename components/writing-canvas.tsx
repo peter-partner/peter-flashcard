@@ -17,38 +17,19 @@ type Props = {
   showStrokeOrder: boolean;
 };
 
-function roundRect(
-  ctx: CanvasRenderingContext2D,
-  x: number,
-  y: number,
-  w: number,
-  h: number,
-  r: number,
-) {
-  ctx.beginPath();
-  ctx.moveTo(x + r, y);
-  ctx.lineTo(x + w - r, y);
-  ctx.arcTo(x + w, y, x + w, y + r, r);
-  ctx.lineTo(x + w, y + h - r);
-  ctx.arcTo(x + w, y + h, x + w - r, y + h, r);
-  ctx.lineTo(x + r, y + h);
-  ctx.arcTo(x, y + h, x, y + h - r, r);
-  ctx.lineTo(x, y + r);
-  ctx.arcTo(x, y, x + r, y, r);
-  ctx.closePath();
-}
-
 function drawHint(
   ctx: CanvasRenderingContext2D,
   w: number,
   h: number,
   text: string,
-  withOrder: boolean,
+  hideHintCharacter: boolean,
 ) {
   ctx.clearRect(0, 0, w, h);
   const chars = (text || "").split("");
   const n = Math.max(1, chars.length);
 
+  // Grid crosshair / dividers — always drawn, useful as a writing aid in
+  // both modes.
   ctx.strokeStyle = "rgba(30, 91, 173, 0.16)";
   ctx.setLineDash([4, 6]);
   ctx.lineWidth = 1;
@@ -72,11 +53,13 @@ function drawHint(
   }
   ctx.setLineDash([]);
 
+  // Faint character outline behind the user's strokes. Skipped when the
+  // StrokeGuide SVG overlay is rendering the real per-stroke order on top.
+  if (hideHintCharacter) return;
+
   const cell = w / n;
   const fontSize = Math.floor(Math.min(cell, h) * 0.78);
-  ctx.fillStyle = withOrder
-    ? "rgba(30, 91, 173, 0.18)"
-    : "rgba(15, 44, 77, 0.10)";
+  ctx.fillStyle = "rgba(15, 44, 77, 0.10)";
   ctx.font = `${fontSize}px "Noto Sans SC", system-ui, sans-serif`;
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
@@ -85,21 +68,6 @@ function drawHint(
     const cy = h / 2 + h * 0.03;
     ctx.fillText(ch, cx, cy);
   });
-
-  if (withOrder) {
-    ctx.font = '600 11px Inter, system-ui, sans-serif';
-    ctx.textAlign = "left";
-    ctx.textBaseline = "top";
-    chars.forEach((_, i) => {
-      const cx = cell * i + 8;
-      const cy = 8;
-      ctx.fillStyle = "#1E5BAD";
-      roundRect(ctx, cx, cy, 22, 16, 4);
-      ctx.fill();
-      ctx.fillStyle = "#fff";
-      ctx.fillText(`${i + 1}`, cx + 7, cy + 2);
-    });
-  }
 }
 
 export const WritingCanvas = forwardRef<WritingCanvasHandle, Props>(
@@ -135,7 +103,9 @@ export const WritingCanvas = forwardRef<WritingCanvasHandle, Props>(
       ctx.clearRect(0, 0, c.width, c.height);
     }, [char]);
 
-    // Draw hint overlay.
+    // Draw hint overlay. When showStrokeOrder is true, the StrokeGuide SVG
+    // overlay supplies the real character + numbered strokes, so we hide the
+    // canvas-painted hint to avoid double-drawing.
     useEffect(() => {
       const c = overlayRef.current;
       if (!c) return;

@@ -34,5 +34,8 @@ yarn-error.log*
 # vercel
 .vercel
 
+# verification artifacts produced by scripts/verify-stroke-render.mjs
+scripts/*.png
+
 # typescript
 *.tsbuildinfo

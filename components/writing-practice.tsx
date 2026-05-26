@@ -1,14 +1,16 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Pen, RotateCcw } from "lucide-react";
+import { Pen, Play, RotateCcw } from "lucide-react";
 import { Section } from "./section";
 import { WritingCanvas, type WritingCanvasHandle } from "./writing-canvas";
+import { StrokeGuide, type StrokeGuideHandle } from "./stroke-guide";
 import type { Flashcard } from "@/lib/flashcards";
 
 export function WritingPractice({ word }: { word: Flashcard }) {
   const [showStrokes, setShowStrokes] = useState(false);
   const canvasRef = useRef<WritingCanvasHandle | null>(null);
+  const guideRef = useRef<StrokeGuideHandle | null>(null);
 
   useEffect(() => {
     setShowStrokes(false);
@@ -27,11 +29,18 @@ export function WritingPractice({ word }: { word: Flashcard }) {
             border: `1.5px solid ${showStrokes ? "#6FA8DC" : "#D6E6F5"}`,
           }}
         >
-          <WritingCanvas
-            ref={canvasRef}
-            char={word.zh}
-            showStrokeOrder={showStrokes}
-          />
+          <div className="relative">
+            <WritingCanvas
+              ref={canvasRef}
+              char={word.zh}
+              showStrokeOrder={showStrokes}
+            />
+            {showStrokes && (
+              <div className="absolute inset-0 pointer-events-none">
+                <StrokeGuide ref={guideRef} char={word.zh} autoPlay />
+              </div>
+            )}
+          </div>
         </div>
 
         <div className="flex gap-2.5 mt-3.5">
@@ -57,9 +66,24 @@ export function WritingPractice({ word }: { word: Flashcard }) {
           </button>
         </div>
 
-        <div className="mt-3 flex items-center gap-1.5 text-[11px] text-brand-slate-light">
-          <span className="w-[5px] h-[5px] rounded-full bg-brand-secondary" />
-          Trace each character above. Use the divider as a guide.
+        <div className="mt-3 flex items-center justify-between gap-2">
+          <div className="flex items-center gap-1.5 text-[11px] text-brand-slate-light">
+            <span className="w-[5px] h-[5px] rounded-full bg-brand-secondary" />
+            {showStrokes
+              ? "Strokes animate in writing order."
+              : "Trace each character above. Use the divider as a guide."}
+          </div>
+          {showStrokes && (
+            <button
+              type="button"
+              onClick={() => guideRef.current?.play()}
+              aria-label="Replay stroke order animation"
+              className="inline-flex items-center gap-1 text-[12px] font-semibold text-brand-primary px-2 py-1 rounded-control hover:bg-brand-accent transition-colors"
+            >
+              <Play size={11} fill="#1E5BAD" stroke="#1E5BAD" />
+              Replay
+            </button>
+          )}
         </div>
       </div>
     </Section>

@@ -77,7 +77,7 @@ function drawHint(
   ctx.fillStyle = withOrder
     ? "rgba(30, 91, 173, 0.18)"
     : "rgba(15, 44, 77, 0.10)";
-  ctx.font = `${fontSize}px "Noto Sans SC", "Noto Serif SC", serif`;
+  ctx.font = `${fontSize}px "Noto Sans SC", system-ui, sans-serif`;
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
   chars.forEach((ch, i) => {

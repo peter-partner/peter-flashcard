@@ -71,6 +71,19 @@ const config: Config = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        // Brand radius scale: tag = 6px (chips), control = 10px (small buttons),
+        // surface = 18px (cards/sheets), hero = 20px (large hero cards).
+        tag: "6px",
+        control: "10px",
+        surface: "18px",
+        hero: "20px",
+      },
+      boxShadow: {
+        // Elevation scale: e1 = cards at rest, e2 = floating CTA / hover,
+        // e3 = modals / focused overlays.
+        e1: "0 4px 20px -8px rgba(15, 44, 77, 0.10)",
+        e2: "0 8px 24px -8px rgba(30, 91, 173, 0.45)",
+        e3: "0 12px 36px -10px rgba(15, 44, 77, 0.22)",
       },
       keyframes: {
         "pf-ripple": {

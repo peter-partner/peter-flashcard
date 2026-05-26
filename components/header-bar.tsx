@@ -1,6 +1,7 @@
 "use client";
 
 import { Bookmark } from "lucide-react";
+import { Tag } from "./tag";
 
 export function HeaderBar({
   index,
@@ -76,9 +77,7 @@ export function HeaderBar({
         </div>
       </div>
       <div className="flex items-center gap-2 px-5 pb-2.5">
-        <div className="text-[10px] font-bold tracking-[0.08em] text-brand-primary bg-brand-accent px-2 py-1 rounded-md">
-          {level}
-        </div>
+        <Tag>{level}</Tag>
         <div className="text-[11px] text-brand-slate-light font-thai">
           {category}
         </div>

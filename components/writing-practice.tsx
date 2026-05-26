@@ -19,10 +19,7 @@ export function WritingPractice({ word }: { word: Flashcard }) {
       title="Practice writing"
       icon={<Pen size={14} stroke="#1E5BAD" />}
     >
-      <div
-        className="bg-white rounded-[18px] p-4 border border-brand-divider"
-        style={{ boxShadow: "0 4px 20px -8px rgba(15, 44, 77, 0.08)" }}
-      >
+      <div className="bg-white rounded-surface p-4 border border-brand-divider shadow-e1">
         <div
           className="rounded-2xl p-1 transition-colors"
           style={{

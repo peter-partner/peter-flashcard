@@ -19,10 +19,7 @@ export function ExampleSentence({ ex }: { ex: FlashcardExample }) {
       title="In a sentence"
       icon={<Sparkles size={15} stroke="#1E5BAD" />}
     >
-      <div
-        className="bg-white rounded-[18px] p-[18px] border border-brand-divider"
-        style={{ boxShadow: "0 4px 20px -8px rgba(15, 44, 77, 0.08)" }}
-      >
+      <div className="bg-white rounded-surface p-[18px] border border-brand-divider shadow-e1">
         <div className="flex items-start gap-3">
           <button
             type="button"

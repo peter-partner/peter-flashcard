@@ -21,11 +21,8 @@ export function Pronunciation() {
       icon={<Volume2 size={15} stroke="#1E5BAD" />}
     >
       <div
-        className="bg-white rounded-[18px] border border-brand-divider"
-        style={{
-          padding: "22px 18px 18px",
-          boxShadow: "0 4px 20px -8px rgba(15, 44, 77, 0.08)",
-        }}
+        className="bg-white rounded-surface border border-brand-divider shadow-e1"
+        style={{ padding: "22px 18px 18px" }}
       >
         <div className="flex flex-col items-center">
           <button

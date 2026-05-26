@@ -6,7 +6,7 @@ export function CulturalTip({ tip }: { tip: FlashcardTip | null }) {
   return (
     <div className="px-4 mt-7">
       <div
-        className="relative overflow-hidden rounded-[18px] p-[18px] border border-brand-accent-deep"
+        className="relative overflow-hidden rounded-surface p-[18px] border border-brand-accent-deep"
         style={{
           background: "linear-gradient(135deg, #E8F1FA 0%, #DCE9F5 100%)",
         }}

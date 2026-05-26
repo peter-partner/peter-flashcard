@@ -1,4 +1,5 @@
 import type { Flashcard } from "@/lib/flashcards";
+import { Tag } from "./tag";
 
 function Meta({
   label,
@@ -44,18 +45,14 @@ export function WordCard({
   return (
     <div
       key={navKey}
-      className="relative overflow-hidden mt-4 mx-4 bg-white rounded-[20px] border border-brand-divider animate-pf-flip-in"
+      className="relative overflow-hidden mt-4 mx-4 bg-white rounded-hero border border-brand-divider shadow-e1 animate-pf-flip-in"
       style={{
         padding: "28px 22px 24px",
-        boxShadow:
-          "0 4px 20px -8px rgba(15, 44, 77, 0.12), 0 1px 0 rgba(255,255,255,0.6) inset",
         transformOrigin: "center 30%",
       }}
     >
       <div className="absolute top-4 right-4 flex items-center gap-1.5">
-        <div className="text-[10px] font-bold text-white bg-brand-primary px-2.5 py-1 rounded-md tracking-[0.04em]">
-          {badge}
-        </div>
+        <Tag variant="solid">{badge}</Tag>
       </div>
 
       <div
